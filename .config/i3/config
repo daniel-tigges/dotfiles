@@ -80,7 +80,7 @@ bar {
 ##################################
 #exec_always --no-startup-id $HOME/.config/scripts/polybar/polybar_launch
 #exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec_always --no-startup-id compton -b -c --config ~/.config/compton.conf # composition manager
+exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.conf # composition manager
 #exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/current.jpg # background
 #exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,ssh,secrets
 #exec --no-startup-id rdm # rtags
