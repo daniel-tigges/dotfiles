@@ -1,7 +1,10 @@
 #!/bin/sh
 alias dotfiles="/usr/bin/git --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME" \
-	dot="/usr/bin/git --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME"
-
+	dot="/usr/bin/git --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME" \
+	ls="ls --color=auto"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim if available
 
+# fuzzy finder functions
+fs() { du -a $SCRIPTS* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+ff() { fzf | xargs -r -I % $EDITOR % ;}

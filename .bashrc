@@ -6,8 +6,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-
+# source alias file
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Source alias file
 
 # start ssh agent
