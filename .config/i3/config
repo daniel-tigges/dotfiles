@@ -78,16 +78,9 @@ bar {
 # startup applications
 #
 ##################################
-#exec_always --no-startup-id $HOME/.config/scripts/polybar/polybar_launch
 #exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.conf # composition manager
-#exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/current.jpg # background
 #exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,ssh,secrets
-#exec --no-startup-id rdm # rtags
-#exec_always --no-startup-id ~/.config/scripts/owncloud-sync.sh
-#exec --no-startup-id dropbox
-#exec --no-startup-id insync start
-#exec --no-startup-id guake --hide
 
 ##################################
 #
@@ -141,7 +134,6 @@ exec xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrollin
 # disable screen blanking/auto suspend
 #exec_always xset -dpms
 #exec_always xset s off
-#focus_follows_mouse no
 
 
 ##################################
@@ -278,15 +270,15 @@ bindsym Mod1+space exec rofi -modi drun -show-icons -show
 bindsym $mod+Tab exec rofi -show window # run rofi
 bindsym Mod1+F12 exec rofi -show scripts -modi scripts:~/.config/scripts/rofi_script.sh
 bindsym F12 exec /usr/bin/networkmanager_dmenu
-bindsym Control+mod1+Delete exec ~/.config/i3/i3exit.sh lock # lock screen
+bindsym Control+mod1+Delete exec i3exit lock # lock screen
 # suspend hibernate shutdown mode
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.config/scripts/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id ~/.config/scripts/i3exit.sh logout, mode "default"
-    bindsym s exec --no-startup-id ~/.config/scripts/i3exit.sh suspend, mode "default"
-    bindsym r exec --no-startup-id ~/.config/scripts/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.config/scripts/i3exit.sh shutdown, mode "default"
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
