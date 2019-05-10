@@ -7,15 +7,18 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround' " cs:- change surround from : to -
 Plug 'scrooloose/nerdtree'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' " gcc to comment out
 call plug#end()
 
 " Basics
+" mapping for all modes:   :map/:noremap
+" mapping for normal mode: :nmap/:nnoremap
+" mapping for visual mode: :vmap/:vnoremap
 	set encoding=utf-8
 	syntax on
 	set number
