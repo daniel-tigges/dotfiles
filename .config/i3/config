@@ -79,6 +79,7 @@ bar {
 #
 ##################################
 #exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec_always --no-startup-id pulseaudio --daemonize
 exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.conf # composition manager
 #exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,ssh,secrets
 
@@ -296,9 +297,10 @@ bindsym Control+Mod1+Left workspace prev
 bindsym Control+Mod1+h workspace prev
 bindsym $mod+m move workspace to output left
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/scripts/volumechanger.sh 1 #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/scripts/volumechanger.sh -1 #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id ~/.config/scripts/volumechanger.sh 0 # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id volumechanger 1 #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id volumechanger -1 #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id volumechanger 0 # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id  pactl set-source-mute 2 toggle # toggle microphone
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness

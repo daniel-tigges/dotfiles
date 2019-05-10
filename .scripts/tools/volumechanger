@@ -1,0 +1,14 @@
+#!/bin/sh
+
+volume=$1
+sink=$(pactl list sinks | grep "Sink #" | grep -o '[0-9]*')
+
+if [[ $volume == 0 ]]; then
+    pactl set-sink-mute $sink toggle
+elif [[ $volume == -1 ]]; then 
+   pactl set-sink-volume $sink -5%
+elif [[ $volume == 1 ]]; then
+   pactl set-sink-volume $sink +5%
+fi
+
+
