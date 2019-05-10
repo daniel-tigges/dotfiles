@@ -4,6 +4,7 @@
 
 # set modifier key
 set $mod Mod4
+floating_modifier $mod
 
 # basic definitions
 set $term --no-startup-id $TERMINAL
