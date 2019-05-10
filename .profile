@@ -7,3 +7,7 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="google-chrome-stable"
+
+# set wallpaper
+feh --bg-fill ~/.config/wall.jpg
+
