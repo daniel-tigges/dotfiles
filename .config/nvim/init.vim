@@ -13,6 +13,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary' " gcc to comment out
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Basics
@@ -23,9 +24,24 @@ call plug#end()
 	syntax on
 	set number
 	set mouse=a
-	set nohlsearch
-	filetype plugin on
+	filetype plugin indent on
 	set nocompatible
+	set clipboard=unnamedplus
+	inoremap jj <Esc>
+	" Use ctrl-[hjkl] to select the active split!
+	nmap <silent> <c-k> :wincmd k<CR>
+	nmap <silent> <c-j> :wincmd j<CR>
+	nmap <silent> <c-h> :wincmd h<CR>
+	nmap <silent> <c-l> :wincmd l<CR>
+	set nobackup
+	set noswapfile
+	set incsearch
+	set ignorecase
+	set smartcase
+	set nohlsearch
+	set tabstop=4
+	set softtabstop=0
+	set shiftwidth=4
 
 " Enable autocompletion:
 	set wildmode=longest,list,full
@@ -35,6 +51,11 @@ call plug#end()
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
+
+" git-gutter
+	set updatetime=250
+	let g:gitgutter_max_signs = 500  " default value
+	let g:gitgutter_override_sign_column_highlight = 0
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 	vnoremap <C-c> "+y
