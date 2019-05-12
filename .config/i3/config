@@ -24,10 +24,7 @@ set $ws6  6
 set $ws7  7
 set $ws8  8
 set $ws9  9
-set $ws10  
-set $ws11  
-set $ws12 
-set $ws13 
+set $ws10 
 
 ##################################
 #
@@ -37,6 +34,7 @@ set $ws13 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango: Inconsolata 12px
+font pango: FontAwesome 12px
 
 ##################################
 #
@@ -80,7 +78,6 @@ bar {
 #
 ##################################
 #exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec_always --no-startup-id pulseaudio --daemonize
 exec --no-startup-id dunst
 exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.conf # composition manager
 #exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,ssh,secrets
@@ -90,12 +87,12 @@ exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.
 # application settings
 #
 ##################################
-assign [class="Spotify"] $12
-for_window [class="Spotify"] move to workspace $12
-assign [class="Hexchat"] $11
-assign [class="VirtualBox"] $10
-assign [class="Virt-manager"] $10
-assign [class="Thunderbird"] $13
+assign [class="Spotify"] $ws10
+for_window [class="Spotify"] move to workspace $ws10
+#assign [class="Hexchat"] $11
+#assign [class="VirtualBox"] $10
+#assign [class="Virt-manager"] $10
+#assign [class="Thunderbird"] $13
 # set border/floating behaviour when applications started
 for_window [class="GParted"]                        floating enable border normal 3
 for_window [class="Lightdm-gtk-greeter-settings"]   floating enable border normal 3
@@ -317,15 +314,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Calculator exec galculator
 #bindsym XF86Sleep
 #bindsym XF86Search
-bindsym $mod+Shift+Return exec ranger
 # browser
 bindsym $mod+g exec $BROWSER
 # spotify
-bindsym $mod+z exec ~/.config/scripts/runorfocus.sh spotify
-# mails
-bindsym $mod+t exec ~/.config/scripts/runorfocus.sh thunderbird
-# hexchat
-bindsym $mod+c exec ~/.config/scripts/runorfocus.sh hexchat
-
-
+bindsym $mod+z exec runorfocus.sh spotify
 

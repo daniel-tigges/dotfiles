@@ -1,5 +1,5 @@
 [global]
-font = mono 14
+font = mono 12
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -12,7 +12,7 @@ font = mono 14
 # If markup is not allowed, those tags will be stripped out of the
 # message.
 allow_markup = yes
-plain_text = yes
+plain_text = no
 
 # The format of the message.  Possible variables are:
 #   %a  appname
@@ -70,7 +70,7 @@ hide_duplicates_count = yes
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "250x50-40+40"
-geometry = "400x90-15+49"
+geometry = "430x90-15+49"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -126,7 +126,7 @@ separator_height = 2
 padding = 6
 
 # Horizontal padding.
-horizontal_padding = 6
+horizontal_padding = 4
 
 # Define a color for the separator.
 # possible values are:
@@ -153,7 +153,7 @@ max_icon_size = 150
 
 # Paths to default icons.
 #icon_folders = /usr/share/icons/$GTKTHEME/16x16/mimetypes:/usr/share/icons/$GTKTHEME/16x16/status/:/usr/share/icons/$GTKTHEME/16x16/devices/:/usr/share/icons/$GTKTHEME/16x16/emblems/:/usr/share/icons/$GTKTHEME/16x16/apps/
-icon_folders = /usr/share/icons/Numix/16/mimetypes/:/usr/share/icons/Numix/16/status/:/usr/share/icons/Numix/16/devices/:/usr/share/icons/Numix/16/notifications/:/usr/share/icons/Numix/16/emblems/:/usr/share/icons/Numix/16/apps/
+icon_folders = /usr/share/icons/Numix/96/mimetypes/:/usr/share/icons/Numix/96/status/:/usr/share/icons/Numix/96/devices/:/usr/share/icons/Numix/96/notifications/:/usr/share/icons/Numix/96/emblems/:/usr/share/icons/Numix/96/apps/
 
 
 [frame]
