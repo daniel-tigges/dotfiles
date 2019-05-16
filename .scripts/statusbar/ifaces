@@ -61,7 +61,9 @@ fi
 IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^ \/]+).* scope global/ && print \$1 and exit")
 
 case $BLOCK_BUTTON in
-  3) echo -n "$IPADDR" | xclip -q -se c ;;
+	1) /usr/bin/networkmanager_dmenu ;;
+	2) /usr/bin/nm-connection-editor ;;
+  	3) echo -n "$IPADDR" | xclip -q -se c ;;
 esac
 
 #------------------------------------------------------------------------

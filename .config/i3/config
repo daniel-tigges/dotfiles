@@ -81,6 +81,7 @@ bar {
 exec --no-startup-id dunst
 exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.conf # composition manager
 #exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,ssh,secrets
+exec feh --bg-fill $WALLPAPER
 
 ##################################
 #
@@ -147,10 +148,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -271,19 +268,6 @@ bindsym $mod+Tab exec rofi -show window # run rofi
 bindsym Mod1+F12 exec rofi -show scripts -modi scripts:~/.config/scripts/rofi_script.sh
 bindsym F12 exec /usr/bin/networkmanager_dmenu
 bindsym Control+mod1+Delete exec i3exit lock # lock screen
-# suspend hibernate shutdown mode
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Delete mode "$mode_system"
 # monitor switch bindings
 bindsym $mod+F9 exec  monitor-switch -1
 bindsym $mod+F10 exec monitor-switch 0
@@ -295,6 +279,8 @@ bindsym Control+Mod1+l workspace next
 bindsym Control+Mod1+Left workspace prev
 bindsym Control+Mod1+h workspace prev
 bindsym $mod+m move workspace to output left
+# dmenu commands
+bindsym $mod+plus exec --no-startup-id dmenuemoji
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id volumechanger 1 #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id volumechanger -1 #decrease sound volume
@@ -311,11 +297,23 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym XF86Mail exec google-chrome-beta https://mail.google.com/
 #bindsym XF86HomePage exec nemo
 #bindsym XF86Tools exec spotify
-bindsym XF86Calculator exec galculator
+#bindsym XF86Calculator exec galculator
 #bindsym XF86Sleep
 #bindsym XF86Search
 # browser
 bindsym $mod+g exec $BROWSER
 # spotify
-bindsym $mod+z exec runorfocus.sh spotify
-
+bindsym $mod+z exec runorfocus spotify
+# suspend hibernate shutdown mode
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Delete mode "$mode_system"

@@ -1,7 +1,9 @@
 #!/bin/sh
 alias dotfiles="/usr/bin/git --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME" \
 	dot="/usr/bin/git --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME" \
-	ls="ls --color=auto" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	l="ls -hNl --color=auto --group-directories-first" \
+	ll="ls -hN -all --color=auto --group-directories-first" \
 	pi="comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base -g base-devel | sort | uniq)"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim if available

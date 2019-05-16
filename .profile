@@ -12,6 +12,5 @@ export GTKTHEME="Numix"
 
 export PATH="$PATH:$(du "$SCRIPTS" | cut -f2 | tr '\n' ':' | sed 's/:*$//')" # add script folder to path variable
 
-# set wallpaper
-feh --bg-fill $WALLPAPER
-
+# Start graphical server if i3 not already running. (not needed currently since lightdm is used)
+#[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
