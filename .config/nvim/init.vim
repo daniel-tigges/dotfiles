@@ -44,7 +44,7 @@ call plug#end()
 	set shiftwidth=4
 
 " Enable autocompletion:
-	set wildmode=longest,list,full
+	"set wildmode=longest,list,full
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>

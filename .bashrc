@@ -12,6 +12,8 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 # setup bash completion
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
+#enable vim mode
+set -o vi
 
 # start ssh agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -20,3 +22,4 @@ fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<~/.ssh-agent-thing)" > /dev/null
 fi
+

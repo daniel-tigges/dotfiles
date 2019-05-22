@@ -7,7 +7,8 @@
 # When clicked, it will run an upgrade via pacman.
 
 case $BLOCK_BUTTON in
-	1) notify-send -a "Upgradeable packages" -i "" "$(/usr/bin/pacman -Qu)" ;;
+	1) notify-send -a "Upgradeable packages" "$(/usr/bin/pacman -Qu)" ;;
+	3) $TERMINAL -e pikaur -Syu --noconfirm && pikaur -Scc && pkill -RTMIN+8 i3blocks ;;
 esac
 
 
