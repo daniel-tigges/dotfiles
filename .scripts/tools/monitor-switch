@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ############## ### created by Daniel Tigges
 ##
 #	Parameter = -1	| MAIN  |  |  EXT  |
@@ -8,19 +10,10 @@
 ###
 #############
 
-#!/bin/bash
-
-_DEBUG="off"
-function DEBUG()
-{
- [ "$_DEBUG" == "on" ] &&  $@
-}
-
 MAIN="LVDS-1"
 CONNECTED=$(xrandr -q | grep " connected" | grep -v "$MAIN" | cut -d ' ' -f1)
-DISCONNECTED=$(xrandr | grep -e "disconnected" | cut -f 1 -d ' ')
 NR_MON=$(xrandr -q | grep " connected" | cut -d ' ' -f1 | wc -l)
-monitors_on="--output $MAIN --auto"
+options="--output $MAIN --auto"
 
 # exit if more than two monitors connected
 if [ "$NR_MON" -gt 2 ]; then
@@ -29,35 +22,31 @@ if [ "$NR_MON" -gt 2 ]; then
 fi
 
 # exit if one monitor connected and you try to extend display
-if [ $1 != 2 ] && [ "$NR_MON" -eq 1 ]; then
+if [ "$1" != 2 ] && [ "$NR_MON" -eq 1 ]; then
     echo "More than one monitor or no external connected. Please configure it manually."
     exit
 fi
 
-if [ $1 == 1 ]; then
-    echo Extending display $CONNECTED to the left of $MAIN
-    monitors_on="$monitors_on --output $CONNECTED --auto --primary --left-of $MAIN"
-    DEBUG echo $monitors_on
-elif [ $1 == -1 ]; then
-    echo Extending display $CONNECTED to the right of $MAIN
-    monitors_on="$monitors_on --output $CONNECTED --auto --primary --right-of $MAIN"
-    DEBUG echo $monitors_on
-elif [ $1 == 2 ]; then
-    echo "Only primary display $main."
+if [ "$1" -eq 1 ]; then
+    echo Extending display "$CONNECTED" to the left of "$MAIN"
+    options="${options} --output ${CONNECTED} --auto --primary --left-of ${MAIN}"
+elif [ "$1" -eq -1 ]; then
+    echo Extending display "$CONNECTED" to the right of "$MAIN"
+    options="${options} --output $CONNECTED --auto --primary --right-of $MAIN"
+elif [ "$1" -eq 2 ]; then
+    echo "Only primary display $MAIN"
     if [ -z "$CONNECTED" ]; then
- 	monitors_on="$monitors_on --primary"
+ 		options="$options --primary"
     else
- 	monitors_on="$monitors_on --primary --output $CONNECTED --off"
+ 		options="$options --primary --output $CONNECTED --off"
     fi
-    DEBUG echo $monitors_on
-elif [ $1 == 0 ]; then
-    echo "Only secondary display $connected."
-    monitors_on="--output $MAIN --off --output $CONNECTED --auto --primary"
-    DEBUG echo $monitors_on
+elif [ "$1" -eq 0 ]; then
+    echo "Only secondary display $CONNECTED"
+    options="--output $MAIN --off --output $CONNECTED --auto --primary"
 fi
 
-# set display
-xrandr $monitors_on
+# set monitor settings
+xrandr ${options}
 
 # set background
 feh --bg-fill "$WALLPAPER"

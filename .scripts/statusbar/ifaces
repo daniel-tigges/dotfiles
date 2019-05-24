@@ -50,7 +50,7 @@ for flag in "$1" "$2"; do
   esac
 done
 
-if [[ "$IF" = "" ]] || [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
+if [[ "$IF" = "" ]] || [[ "$(cat /sys/class/net/"$IF"/operstate)" = 'down' ]]; then
   echo "${LABEL}down" # full text
   echo "${LABEL}down" # short text
   echo \#FF0000 # color
@@ -58,7 +58,7 @@ if [[ "$IF" = "" ]] || [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; the
 fi
 
 # if no interface is found, use the first device with a global scope
-IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^ \/]+).* scope global/ && print \$1 and exit")
+IPADDR=$(ip addr show "$IF" | perl -n -e "/$AF ([^ \/]+).* scope global/ && print \$1 and exit")
 
 case $BLOCK_BUTTON in
 	1) /usr/bin/networkmanager_dmenu ;;

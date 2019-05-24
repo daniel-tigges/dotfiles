@@ -1,16 +1,13 @@
 #!/bin/sh
 
-intern=LVDS-1
+MAIN="LVDS-1"
+CONNECTED=$(xrandr -q | grep " connected" | grep -v "$MAIN" | cut -d ' ' -f1)
+NR_MON=$(xrandr -q | grep " connected" | cut -d ' ' -f1 | wc -l)
 
-VGA_CON=`xrandr -q | grep 'VGA-1 connected'`
-HDMI_CON=`xrandr -q | grep 'DP-1 connected'`
-# if the external monitor is connected, then we tell XRANDR to set up monitor as primary
-if [ -n "$VGA_CON" ] || [ ! "$VGA_CON" = "" ]; then
-    xrandr --output $intern --off --output DP2 --auto --primary
-elif [ -n "$HDMI_CON" ] || [ ! "$HDMI_CON" = "" ]; then
-    xrandr --output $intern --off --output DP2-2 --primary --auto
+if [ "$NR_MON" -eq 2 ]; then
+	echo "Activating $CONNECTED"
+    xrandr --output "$MAIN" --off --output "$CONNECTED" --auto --primary
 else
-    xrandr --output $intern --primary --auto --output DP2 --off --output DP2-2 --off
+	echo "Activating $MAIN"
+    xrandr --output "$MAIN" --primary --auto
 fi
-
-exit 0;
