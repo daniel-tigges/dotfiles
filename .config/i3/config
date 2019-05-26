@@ -82,6 +82,8 @@ bar {
 exec --no-startup-id dunst
 exec_always --no-startup-id compton -b -c -C --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-fill $WALLPAPER
+exec --no-startup-id entr_wallswitch
+exec --no-startup-id entr_greeterswitch
 
 ##################################
 #

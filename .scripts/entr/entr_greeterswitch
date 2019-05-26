@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "$GREETERBG" | entr -p sudo change-greeter-bg "$GREETERBG" &
+echo "$GREETERBG" | entr -p notify-send -a "entr watch" "Greeter background updated" &
+wait
+
