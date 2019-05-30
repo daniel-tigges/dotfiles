@@ -25,7 +25,11 @@ signal=8
 [volume]
 interval=once
 signal=10
+
+[tasks]
 interval=once
+signal=9
+label=
 
 [cpu]
 interval=15

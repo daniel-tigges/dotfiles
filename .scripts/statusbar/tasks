@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send -a "Tasks" "$(cat $TASKSFILE)" ;;
+	2) $TERMINAL -e wunderline done && update_tasks
+esac
+
+cat "$TASKSFILE" | wc -l

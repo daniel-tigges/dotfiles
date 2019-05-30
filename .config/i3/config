@@ -71,6 +71,7 @@ bar {
 	position top
 	mode dock
 	modifier None
+	tray_output none
 }
 
 

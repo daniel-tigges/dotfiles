@@ -1,0 +1,13 @@
+#!/bin/sh
+
+ping -q -c 1 1.1.1.1 > /dev/null || exit
+
+TASKSFILE="/home/daniel/.config/tasks"
+#tasks=$(wunderline week | awk -F '[[:space:]][[:space:]]+' '{print $1}' | grep -Ev '\(.\)' | awk 'NF')
+tasks=$(wunderline week | grep -Ev '\(.\)' | awk 'NF' | awk -F '[[:space:]][[:space:]]+' -v OFS='\t' '{print $1, $2}' | sort -k2 -r | column -t -s $'\t')
+
+echo "$tasks" > "$TASKSFILE"
+
+pkill -RTMIN+9 i3blocks
+
+notify-send -a " Tasks updated" "$(cat $TASKSFILE)"
