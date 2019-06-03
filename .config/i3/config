@@ -258,7 +258,7 @@ bindsym $mod+r mode "resize"
 # custom key bindings
 #
 ##################################
-bindsym Mod1+space exec --no-startup-id rofi -modi drun -show-icons -show
+bindsym Mod1+space exec --no-startup-id dmenu_run
 bindsym $mod+Tab exec --no-startup-id rofi -show window # run rofi
 bindsym Mod1+F12 exec --no-startup-id rofi -show scripts -modi scripts:~/.config/scripts/rofi_script.sh
 bindsym F12 exec --no-startup-id /usr/bin/networkmanager_dmenu
