@@ -3,9 +3,9 @@
 ping -q -c 1 1.1.1.1 > /dev/null || exit
 
 TASKSFILE="/home/daniel/.config/tasks"
-#tasks=$(wunderline week | grep -Ev '\(.\)' | awk 'NF' | awk -F '[[:space:]][[:space:]]+' -v OFS='\t' '{print $1, $2}' | column -t -s $'\t')
-#task=$(wunderline week | grep -Ev '\(.\)' | awk 'NF' | awk -F '[[:space:]][[:space:]]+' -v OFS='\t' '{system("date -d \"" $2 "\" +\"%A %d.%m.%y\" "), system("date -d \"" $2 "\" +\"%j\" ")}')
 tasks=$(wunderline week | grep -Ev '\(.\)' | awk 'NF' | awk -F '[[:space:]][[:space:]]+' -v OFS='\t' '{cmd="date -d \"" $2 "\" +\"%A\" ";cmt="date -d \"" $2 "\" +\"%j\" "; cmd | getline out1; cmt | getline out2; printf "%s\t%s\t%s\n", $1, out1, out2; close(cmd); close(cmt)}' | sort -t $'\t' -k3,3 | awk -F $'\t' '{printf "%s\t%s\n", $1, $2 }' | column -t -s $'\t')
+
+[ -z "$tasks" ] && tasks="No tasks available ..."
 
 echo "$tasks" > "$TASKSFILE"
 

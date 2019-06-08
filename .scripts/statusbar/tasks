@@ -1,8 +1,16 @@
 #!/bin/sh
 
+tasks=$(cat "$TASKSFILE")
+last_char=${tasks#"${tasks%?}"}
+
 case $BLOCK_BUTTON in
-	1) notify-send -a "Tasks" "$(cat $TASKSFILE)" ;;
+	1) notify-send -a "Tasks" "$tasks" ;;
 	2) $TERMINAL -e wunderline done && update_tasks
 esac
 
-cat "$TASKSFILE" | wc -l
+if [ "$last_char" = '.' ]
+	then
+		echo 0
+	else
+		echo "$tasks" | wc -l
+	fi
