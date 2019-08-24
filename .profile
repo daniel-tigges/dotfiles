@@ -5,7 +5,7 @@
 export SCRIPTS="$HOME/.scripts/"
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="google-chrome-stable"
+export BROWSER="firefox"
 export WALLPAPER="$HOME/.config/wall.jpg"
 export LOCKBG="$HOME/.config/lock.png"
 export GREETERBG="$HOME/.config/greeter.jpg"
