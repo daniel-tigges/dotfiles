@@ -295,6 +295,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 #bindsym XF86Calculator exec galculator
 #bindsym XF86Sleep
 #bindsym XF86Search
+# vs code
+bindsym $mod+c exec $IDE
 # browser
 bindsym $mod+g exec $BROWSER
 # spotify

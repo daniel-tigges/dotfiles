@@ -10,6 +10,12 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/repos/private/dotfiles/ --work-tree
 	po="comm -23 <(pacman -Qdtq | sort) <(pacman -Qqg base -g base-devel | sort | uniq)" \
 	weechat="weechat -d $HOME/.config/weechat"
 
+#shortcuts
+alias cr="cd $HOME/repos" \
+	crd="cd $HOME/repos/djk-avenwedde" \
+	crp="cd $HOME/repos/private" \
+	crc="cd $HOME/repos/codepit"
+
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim if available
 
 # fuzzy finder functions

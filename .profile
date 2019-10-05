@@ -4,7 +4,8 @@
 
 export SCRIPTS="$HOME/.scripts/"
 export EDITOR="nvim"
-export TERMINAL="st"
+export IDE="code"
+export TERMINAL="termite"
 export BROWSER="firefox"
 export WALLPAPER="$HOME/.config/wall.jpg"
 export LOCKBG="$HOME/.config/lock.png"
