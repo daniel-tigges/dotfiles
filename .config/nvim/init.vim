@@ -11,9 +11,11 @@ Plug 'tpope/vim-surround' " cs:- change surround from : to -
 Plug 'scrooloose/nerdtree'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
-Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary' " gcc to comment out
 Plug 'airblade/vim-gitgutter'
+Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Basics
@@ -22,6 +24,7 @@ call plug#end()
 " mapping for visual mode: :vmap/:vnoremap
 	set encoding=utf-8
 	syntax on
+	color dracula
 	set number
 	set mouse=a
 	filetype plugin indent on
@@ -42,6 +45,9 @@ call plug#end()
 	set tabstop=4
 	set softtabstop=0
 	set shiftwidth=4
+" airline font
+let g:airline_powerline_fonts=1
+
 
 " Enable autocompletion:
 	"set wildmode=longest,list,full

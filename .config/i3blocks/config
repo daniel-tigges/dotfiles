@@ -8,11 +8,6 @@ instance=spotify
 interval=5
 signal=10
 
-[music]
-label=🎼
-interval=once
-signal=11
-
 [ifaces]
 label=:
 interval=10
@@ -44,6 +39,6 @@ command=battery BAT0
 interval=5
 
 [clock]
-label=📅
+label=
 interval=30
 
