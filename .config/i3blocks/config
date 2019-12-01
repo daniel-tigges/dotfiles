@@ -39,6 +39,6 @@ command=battery BAT0
 interval=5
 
 [clock]
-label=
+label=📅
 interval=30
 

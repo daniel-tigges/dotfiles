@@ -1,15 +1,17 @@
 #!/bin/sh
 
-# i3blocks module for pacman upgrades.
-# Displays number of upgradeable packages.
-# For this to work, have a `pacman -Sy` command run in the background as a
-# cronjob every so often as root. This script will then read those packages.
-# When clicked, it will run an upgrade via pacman.
+if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
+    updates_arch=0
+fi
 
-case $BLOCK_BUTTON in
-	1) notify-send -a "Upgradeable packages" "$(/usr/bin/pacman -Qu)" ;;
-	3) $TERMINAL -e pikaur -Syu --noconfirm && pikaur -Scc && pkill -RTMIN+8 i3blocks ;;
-esac
+if ! updates_aur=$(pikaur -Qua 2> /dev/null | wc -l); then
+    updates_aur=0
+fi
 
+updates=$(("$updates_arch" + "$updates_aur"))
 
-pacman -Qu | grep -cv "\[ignored\]" | sed -e "s/^0$//g"
+if [ "$updates" -gt 0 ]; then
+    echo "# $updates"
+else
+    echo ""
+fi

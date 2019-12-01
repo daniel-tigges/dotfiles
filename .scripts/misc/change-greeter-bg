@@ -1,0 +1,4 @@
+#!/bin/sh
+# Parameter 1: Path to greeter bg
+
+cp "$1" /usr/share/pixmaps/greeter.jpg

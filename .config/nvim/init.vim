@@ -13,7 +13,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-commentary' " gcc to comment out
 Plug 'airblade/vim-gitgutter'
-Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -24,7 +24,9 @@ call plug#end()
 " mapping for visual mode: :vmap/:vnoremap
 	set encoding=utf-8
 	syntax on
-	color dracula
+	color gruvbox
+	set background=dark    " Setting dark mode
+	set termguicolors
 	set number
 	set mouse=a
 	filetype plugin indent on
