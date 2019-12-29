@@ -50,3 +50,6 @@ xrandr ${options}
 
 # set background
 set-background
+
+# set polybar
+~/.config/polybar/launch-polybar

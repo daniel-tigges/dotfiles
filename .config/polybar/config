@@ -180,7 +180,7 @@
 
 	format-full = <label-full>
 
-	format-full-prefix            = " "
+	format-full-prefix            = " "
     format-full-prefix-background = ${colors.background}
 	format-full-prefix-foreground = ${colors.battery}
 	format-full-prefix-padding    = 0
@@ -295,7 +295,7 @@
     format-disconnected-prefix-background = ${colors.background}
     format-disconnected-prefix-foreground = ${colors.network}
 
-    label-disconnected            = "睊"
+    label-disconnected            = " 睊"
     label-disconnected-background = ${colors.background}
     label-disconnected-foreground = ${colors.network}
     label-disconnected-padding    = 1.5
