@@ -73,7 +73,7 @@ exec --no-startup-id dunst
 exec --no-startup-id set-background
 exec --no-startup-id entr_wallswitch
 exec --no-startup-id entr_greeterswitch
-exec_always --no-startup-id picom -b -c -C --config ~/.config/compton/compton.conf
+exec --no-startup-id picom -b -c -C --config ~/.config/compton/compton.conf
 exec_always --no-startup-id ~/.config/polybar/launch-polybar
 
 ##################################

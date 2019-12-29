@@ -329,16 +329,3 @@
     label-padding    = 0
 
     label = %date% - %time%
-
-[module/updates-arch]
-    type = custom/script
-    
-    exec = ~/.config/polybar/scripts/arch/arch-update.sh -s
-    tail = true
-    format = <label>
-    format-prefix = ""
-    format-prefix-padding = 1
-    click-right =  ~/.config/polybar/scripts/arch/arch-update.sh -u&
-    click-left =  ~/.config/polybar/scripts/arch/arch-update.sh -q&
-    click-middle =  ~/.config/polybar/scripts/arch/arch-update.sh -c&
-    scroll-up =  ~/.config/polybar/scripts/arch/arch-update.sh -n&
