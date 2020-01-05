@@ -1,6 +1,10 @@
 #!/bin/sh
 
 lock() {
+    i3lock -i $LOCKBG
+}
+
+lock_blurred() {
     BLURTYPE="2x8" # 2.90s
     SCREENSHOT="scrot -o $LOCKBG" # 0.46s
     $SCREENSHOT
@@ -12,13 +16,13 @@ lock() {
 
 case "$1" in
     lock)
-        lock
+        lock_blurred
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
-		lock && systemctl suspend
+		lock_blurred && systemctl suspend
         ;;
     reboot)
         reboot
