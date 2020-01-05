@@ -1,7 +1,13 @@
 #!/bin/sh
 
 lock() {
-    i3lock -f -i "$LOCKBG"
+    BLURTYPE="2x8" # 2.90s
+    SCREENSHOT="scrot -o $LOCKBG" # 0.46s
+    $SCREENSHOT
+    convert $LOCKBG -resize 50%
+    convert $LOCKBG -blur $BLURTYPE $LOCKBG
+    convert $LOCKBG -resize 200%
+    i3lock -i $LOCKBG
 }
 
 case "$1" in
