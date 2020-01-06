@@ -241,7 +241,7 @@ bindsym Control+mod1+Delete exec --no-startup-id i3exit lock # lock screen
 # set background
 bindsym $mod+F7 exec --no-startup-id set-background
 # set home default monitor setup
-bindsym $mod+F8 exec --no-startup-id ~/.config/screenlayout/default.sh
+bindsym $mod+F8 exec --no-startup-id "monitor-setup && ~/.config/polybar/launch-polybar"
 # monitor switch bindings
 bindsym $mod+F9 exec --no-startup-id monitor-switch -1
 bindsym $mod+F10 exec --no-startup-id monitor-switch 0
