@@ -4,7 +4,7 @@
 export EDITOR="nvim"
 export IDE="code"
 export TERMINAL="termite"
-export BROWSER="firefox"
+export BROWSER="brave"
 export SCRIPTS="$HOME/.scripts/"
 export WALLPAPER="$HOME/.config/wall.jpg"
 export LOCKBG="$HOME/.config/lock.png"

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+get_inner=$(i3-msg -t get_tree | grep -Po '.*"gaps":{"inner":\K(-|)[0-9]+(?=.*"focused":true)')
+get_outer=$(i3-msg -t get_tree | grep -Po '.*"gaps":{.*"outer":\K(-|)[0-9]+(?=.*"focused":true)')
+inner_gaps=${1:-0}
+outer_gaps=${2:-0}
+
+if [ "$get_inner" -eq 0 ]; then
+    i3-msg gaps inner current set 0;
+    i3-msg gaps outer current set 0;
+else
+    i3-msg gaps inner current set $inner_gaps;
+    i3-msg gaps outer current set $outer_gaps;
+fi

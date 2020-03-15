@@ -1,0 +1,9 @@
+#!/bin/sh
+
+STATUS=$(xprop -name polybar-base_LVDS1 WM_STATE | grep "window state" | awk -F ':' '{print $2}' | sed -e 's/^[[:space:]]*//')
+
+if [ "$STATUS" = "Withdrawn" ]; then
+    xdo show -N Polybar
+else
+    xdo hide -N Polybar
+fi

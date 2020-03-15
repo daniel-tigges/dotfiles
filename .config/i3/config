@@ -9,6 +9,8 @@ floating_modifier $mod
 # basic definitions
 set $term --no-startup-id $TERMINAL
 bindsym $mod+Return exec $term
+set $gaps_outer 1
+set $gaps_inner 8
 
 ##################################
 #
@@ -43,8 +45,8 @@ font pango:monospace 12px
 ##################################
 default_border pixel 3
 default_floating_border pixel 3
-gaps inner 8
-gaps outer 0
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 #smart_gaps on
 #smart_borders on
 for_window [class=".*"] title_format "%class - %title" # set title format for stacked/tabbed windows
@@ -227,6 +229,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#  enable/disable gaps
+bindsym $mod+o exec toggle_gaps $gaps_inner $gaps_outer
+
+#  hide/show polybar
+bindsym $mod+p exec toggle_hide_bar
 
 ##################################
 #
@@ -237,7 +244,7 @@ bindsym $mod+space exec --no-startup-id rofi -show drun
 #bindsym $mod+Tab exec --no-startup-id rofi -show window # run rofi
 #bindsym Mod1+F12 exec --no-startup-id rofi -show scripts -modi scripts:~/.config/scripts/rofi_script.sh
 bindsym F12 exec --no-startup-id /usr/bin/networkmanager_dmenu
-bindsym Control+mod1+Delete exec --no-startup-id i3exit lock # lock screen
+bindsym Control+mod1+Delete exec --no-startup-id i3exit lock
 # set background
 bindsym $mod+F7 exec --no-startup-id set-background
 # set home default monitor setup

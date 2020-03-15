@@ -21,8 +21,8 @@
     screenchange-reload = true
 
 [global/wm]
-    margin-top = 5
-    margin-bottom = 5
+    margin-top = 0
+    margin-bottom = 0
 
 [colors]
     background = ${xrdb:color0:#222}
@@ -43,7 +43,7 @@
 [bar/base]
     monitor = ${env:MONITOR:}
     width = 100%
-    height = 34
+    height = 28
     offset-x = 0
     offset-y = 0
     radius = 0.0
@@ -75,7 +75,7 @@
 
     modules-left = i3
     modules-center = spotify
-    modules-right = pulseaudio-control battery essid eth date updates-arch
+    modules-right = updates-arch-combined pulseaudio-control battery essid eth date
 
     ;wm-restack = i3
 
@@ -329,3 +329,8 @@
     label-padding    = 0
 
     label = %date% - %time%
+
+[module/updates-arch-combined]
+    type = custom/script
+    exec = ~/.config/polybar/scripts/updates-arch-combined.sh
+    interval = 600
