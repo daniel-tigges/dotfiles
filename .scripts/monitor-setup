@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAIN="LVDS-1"
+MAIN="LVDS1"
 PLACEMENT="left-of"
 LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
 NR_DISPLAYS=$(xrandr -q | grep " connected" | cut -d ' ' -f1 | wc -l)
@@ -16,7 +16,7 @@ for i in "${!CONNECTED[@]}"; do
     if [ "${CONNECTED[i]}" == "$MAIN" ] && [ "$LID_STATE" == "closed" ]; then
         echo "Lid closed, deactivating internal display."
         xrandr --output "$MAIN" --off
-    elif [ $i -eq 0 ]; then
+        elif [ $i -eq 0 ]; then
         echo "Activating ${CONNECTED[i]}"
         xrandr --output "${CONNECTED[i]}" --auto
     else

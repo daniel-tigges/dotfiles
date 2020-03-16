@@ -10,7 +10,7 @@
 ###
 #############
 
-MAIN="LVDS-1"
+MAIN="LVDS1"
 CONNECTED=$(xrandr -q | grep " connected" | grep -v "$MAIN" | cut -d ' ' -f1)
 NR_MON=$(xrandr -q | grep " connected" | cut -d ' ' -f1 | wc -l)
 options="--output $MAIN --auto"
@@ -30,17 +30,17 @@ fi
 if [ "$1" -eq 1 ]; then
     echo Extending display "$CONNECTED" to the left of "$MAIN"
     options="${options} --output ${CONNECTED} --auto --primary --left-of ${MAIN}"
-elif [ "$1" -eq -1 ]; then
+    elif [ "$1" -eq -1 ]; then
     echo Extending display "$CONNECTED" to the right of "$MAIN"
     options="${options} --output $CONNECTED --auto --primary --right-of $MAIN"
-elif [ "$1" -eq 2 ]; then
+    elif [ "$1" -eq 2 ]; then
     echo "Only primary display $MAIN"
     if [ -z "$CONNECTED" ]; then
- 		options="$options --primary"
+        options="$options --primary"
     else
- 		options="$options --primary --output $CONNECTED --off"
+        options="$options --primary --output $CONNECTED --off"
     fi
-elif [ "$1" -eq 0 ]; then
+    elif [ "$1" -eq 0 ]; then
     echo "Only secondary display $CONNECTED"
     options="--output $MAIN --off --output $CONNECTED --auto --primary"
 fi

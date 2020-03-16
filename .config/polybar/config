@@ -131,6 +131,11 @@
     exec = python ~/.config/polybar/scripts/spotify-status.py -f '{play_pause} {artist}: {song}' -t 50 -p '契,'
     format-underline = 
 
+[module/bluetooth]
+    type = custom/script
+    exec = ~/.config/polybar/scripts/rofi-bluetooth --status
+    interval = 1
+    click-left = rofi-bluetooth &
 
 [module/pulseaudio-control]
     type = custom/script
