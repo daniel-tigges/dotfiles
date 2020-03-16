@@ -10,10 +10,10 @@
 pid=$(pgrep -x "$1")
 
 if [ -z "$pid" ]; then
-	$1 &
-	sleep 0.8
+    $1 &
+    sleep 0.8
 fi
 
 # focus program
-i3-msg [instance="$1"] focus
+i3-msg "[instance="$1"] focus"
 
