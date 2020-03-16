@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MAIN="LVDS1"
-PLACEMENT="left-of"
+PLACEMENT="right-of"
 LID_STATE=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
 NR_DISPLAYS=$(xrandr -q | grep " connected" | cut -d ' ' -f1 | wc -l)
 mapfile -t CONNECTED < <(xrandr -q | grep " connected" | cut -d ' ' -f1)
