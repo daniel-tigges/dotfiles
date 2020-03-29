@@ -1,5 +1,5 @@
 #!/bin/sh
 
-echo "$WALLPAPER" | entr -p feh --bg-fill "$WALLPAPER" &
+echo "$WALLPAPER" | entr -p set-background &
 echo "$WALLPAPER" | entr -p notify-send -a "entr watch" "Wallpaper updated" &
 wait

@@ -65,24 +65,14 @@ for_window [instance="dropdown_*"] move position center
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-
-##################################
-#
-# startup applications
-#
-##################################
-exec --no-startup-id dunst
-exec --no-startup-id set-background
-exec --no-startup-id entr_wallswitch
-exec --no-startup-id entr_greeterswitch
-exec --no-startup-id picom -b -c -C --config ~/.config/compton/compton.conf
-exec_always --no-startup-id ~/.config/polybar/launch-polybar
-
 ##################################
 #
 # application settings
 #
 ##################################
+
+exec_always --no-startup-id launch-polybar
+
 assign                                              [class="Spotify"] $ws10
 for_window [class="Spotify"]                        move to workspace $ws10
 # set border/floating behaviour when applications started
@@ -102,17 +92,6 @@ for_window [class="VirtualBox"]                     layout stacked
 for_window [class="Simple-scan"]                    floating enable border pixel 3
 for_window [title="^pdfpc - present" ]              border none floating enable
 for_window [class="Nm-connection-editor" ]          floating enable border normal 3
-
-##################################
-#
-# misc
-#
-##################################
-
-# disable screen blanking/auto suspend
-#exec_always xset -dpms
-#exec_always xset s off
-
 
 ##################################
 #
@@ -241,14 +220,12 @@ bindsym $mod+p exec toggle_hide_bar
 #
 ##################################
 bindsym $mod+space exec --no-startup-id rofi -show drun
-#bindsym $mod+Tab exec --no-startup-id rofi -show window # run rofi
-#bindsym Mod1+F12 exec --no-startup-id rofi -show scripts -modi scripts:~/.config/scripts/rofi_script.sh
 bindsym F12 exec --no-startup-id /usr/bin/networkmanager_dmenu
 bindsym Control+mod1+Delete exec --no-startup-id i3exit lock
 # set background
 bindsym $mod+F7 exec --no-startup-id set-background
 # set home default monitor setup
-bindsym $mod+F8 exec --no-startup-id "monitor-setup && ~/.config/polybar/launch-polybar"
+bindsym $mod+F8 exec --no-startup-id "monitor-setup && launch-polybar"
 # monitor switch bindings
 bindsym $mod+F9 exec --no-startup-id monitor-switch -1
 bindsym $mod+F10 exec --no-startup-id monitor-switch 0
