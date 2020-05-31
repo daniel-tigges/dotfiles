@@ -1,21 +1,24 @@
 #!/bin/sh
 alias dotfiles="/usr/bin/git --git-dir=$HOME/repos/private/dotfiles/ --work-tree=$HOME" \
-	dot="/usr/bin/git --git-dir=$HOME/repos/private/dotfiles/ --work-tree=$HOME" \
-	ls="ls -hN --color=auto --group-directories-first" \
-	l="ls -hNl --color=auto --group-directories-first" \
-	ll="ls -hN -all --color=auto --group-directories-first" \
-	..="cd .." \
-	...="cd ../.." \
-	pi="comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base -g base-devel | sort | uniq)" \
-	po="comm -23 <(pacman -Qdtq | sort) <(pacman -Qqg base -g base-devel | sort | uniq)" \
-	weechat="weechat -d $HOME/.config/weechat" \
-	p="qpdfview"
+dot="/usr/bin/git --git-dir=$HOME/repos/private/dotfiles/ --work-tree=$HOME" \
+ls="ls -hN --color=auto --group-directories-first" \
+l="ls -hNl --color=auto --group-directories-first" \
+ll="ls -hN -all --color=auto --group-directories-first" \
+..="cd .." \
+...="cd ../.." \
+pi="comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base -g base-devel | sort | uniq)" \
+po="comm -23 <(pacman -Qdtq | sort) <(pacman -Qqg base -g base-devel | sort | uniq)" \
+weechat="weechat -d $HOME/.config/weechat" \
+p="qpdfview" \
+wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
+disable_webcam="sudo modprobe -r uvcvideo" \
+enable_webcam="sudo modprobe uvcvideo"
 
 #shortcuts
 alias cr="cd $HOME/repos" \
-	crd="cd $HOME/repos/djk-avenwedde" \
-	crp="cd $HOME/repos/private" \
-	crc="cd $HOME/repos/codepit"
+crd="cd $HOME/repos/djk-avenwedde" \
+crp="cd $HOME/repos/private" \
+crc="cd $HOME/repos/codepit"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim if available
 
